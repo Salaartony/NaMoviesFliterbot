@@ -1626,7 +1626,7 @@
        CONFIG — add your TMDB API key below
        Free key: https://www.themoviedb.org/settings/api
     ════════════════════════════════════════ */
-    const TMDB_KEY  = 'YOUR_TMDB_API_KEY';  // ← paste your key here
+    const TMDB_KEY  = 'http://www.omdbapi.com/?i=tt3896198&apikey=2c51b43d';  // ← paste your key here
     const TMDB_IMG  = 'https://image.tmdb.org/t/p/';
 
     let _trailerKey = null;
@@ -1948,7 +1948,7 @@
     }
 
     async function fetchTMDB() {
-      if (!TMDB_KEY || TMDB_KEY==='YOUR_TMDB_API_KEY') {
+      if (!TMDB_KEY || TMDB_KEY==='http://www.omdbapi.com/?i=tt3896198&apikey=2c51b43d') {
         document.getElementById('tmdbPanel').style.display='none';
         return;
       }
