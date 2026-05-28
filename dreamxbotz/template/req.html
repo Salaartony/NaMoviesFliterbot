@@ -17,27 +17,27 @@
        DESIGN TOKENS
     ═══════════════════════════════════════════ */
     :root {
-      --bg-primary:    rgb(2, 4, 18);
-      --bg-secondary:  rgb(10, 16, 36);
-      --bg-glass:      rgba(8, 13, 30, 0.72);
-      --bg-glass-dark: rgba(2, 4, 18, 0.96);
-      --bg-card:       rgba(14, 20, 42, 0.65);
+      --bg-primary:    rgb(4, 5, 15);
+      --bg-secondary:  rgb(8, 12, 28);
+      --bg-glass:      rgba(8, 11, 28, 0.78);
+      --bg-glass-dark: rgba(4, 5, 15, 0.97);
+      --bg-card:       rgba(12, 16, 36, 0.70);
 
-      --accent-rose:       rgb(244, 63, 94);
-      --accent-rose-light: rgb(251, 113, 133);
-      --accent-amber:      rgb(251, 191, 36);
-      --accent-amber-dim:  rgba(251, 191, 36, 0.15);
+      --accent-rose:       rgb(0, 210, 255);
+      --accent-rose-light: rgb(80, 225, 255);
+      --accent-amber:      rgb(255, 185, 0);
+      --accent-amber-dim:  rgba(255, 185, 0, 0.15);
 
-      --text-primary:   rgb(248, 250, 252);
-      --text-secondary: rgb(203, 213, 225);
-      --text-muted:     rgb(100, 116, 139);
+      --text-primary:   rgb(240, 248, 255);
+      --text-secondary: rgb(180, 210, 235);
+      --text-muted:     rgb(90, 115, 145);
 
-      --border-subtle: rgba(255,255,255,0.05);
-      --border-normal: rgba(255,255,255,0.09);
-      --border-accent: rgba(244, 63, 94, 0.3);
+      --border-subtle: rgba(0,210,255,0.06);
+      --border-normal: rgba(0,210,255,0.11);
+      --border-accent: rgba(0, 210, 255, 0.32);
 
       /* Dynamic – overridden by poster color extractor */
-      --dyn-r: 244; --dyn-g: 63; --dyn-b: 94;
+      --dyn-r: 0; --dyn-g: 210; --dyn-b: 255;
       --dyn-color: rgb(var(--dyn-r), var(--dyn-g), var(--dyn-b));
       --dyn-glow:  rgba(var(--dyn-r), var(--dyn-g), var(--dyn-b), 0.18);
 
@@ -82,7 +82,7 @@
       inset: -30px;
       background-size: cover;
       background-position: center top;
-      filter: blur(48px) saturate(0.55) brightness(0.18);
+      filter: blur(38px) saturate(0.72) brightness(0.24);
       opacity: 0;
       transition: opacity 2s ease, background-image 0.8s ease;
       will-change: opacity;
@@ -94,12 +94,12 @@
       inset: 0;
       z-index: -2;
       background:
-        radial-gradient(ellipse 120% 50% at 50% 0%, rgba(2,4,18,0.35) 0%, transparent 70%),
+        radial-gradient(ellipse 120% 50% at 50% 0%, rgba(4,5,15,0.35) 0%, transparent 70%),
         linear-gradient(to bottom,
-          rgba(2,4,18,0.55) 0%,
-          rgba(2,4,18,0.15) 25%,
-          rgba(2,4,18,0.20) 60%,
-          rgba(2,4,18,0.92) 100%);
+          rgba(4,5,15,0.55) 0%,
+          rgba(4,5,15,0.15) 25%,
+          rgba(4,5,15,0.20) 60%,
+          rgba(4,5,15,0.92) 100%);
     }
 
     /* Dynamic glow orb */
@@ -143,13 +143,13 @@
       top: 0; left: 0; right: 0;
       height: var(--header-h);
       z-index: 1000;
-      background: rgba(2,4,18,0.82);
+      background: rgba(4,5,15,0.88);
       backdrop-filter: blur(26px) saturate(1.6);
       border-bottom: 1px solid var(--border-subtle);
       transition: background 0.3s, box-shadow 0.3s;
     }
     .header.hdr-scrolled {
-      background: rgba(2,4,18,0.97);
+      background: rgba(4,5,15,0.98);
       box-shadow: 0 4px 32px rgba(0,0,0,0.45);
     }
 
@@ -266,11 +266,11 @@
       filter: blur(2px);
       transition: opacity 1.2s;
     }
-    .tp-bd-img.tp-bd-loaded { opacity: 0.17; }
+    .tp-bd-img.tp-bd-loaded { opacity: 0.28; }
     .tp-bd-fade {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, rgba(2,4,18,0.96) 0%, rgba(2,4,18,0.7) 55%, rgba(2,4,18,0.38) 100%);
+      background: linear-gradient(to right, rgba(4,5,15,0.97) 0%, rgba(4,5,15,0.72) 55%, rgba(4,5,15,0.38) 100%);
     }
 
     /* Panel loading */
@@ -389,8 +389,8 @@
     }
     .genre-pill {
       padding: 0.22rem 0.7rem;
-      background: rgba(244,63,94,0.08);
-      border: 1px solid rgba(244,63,94,0.22);
+      background: rgba(0,210,255,0.07);
+      border: 1px solid rgba(0,210,255,0.22);
       border-radius: 6px;
       font-size: 0.73rem;
       font-weight: 600;
@@ -398,19 +398,20 @@
       transition: all 0.2s;
       cursor: default;
     }
-    .genre-pill:hover { background: rgba(244,63,94,0.18); transform: translateY(-1px); }
+    .genre-pill:hover { background: rgba(0,210,255,0.16); transform: translateY(-1px); }
 
-    /* Overview */
-    .tp-desc {
+    /* Overview — now uses tp-desc-inner wrapper */
+    #tpDesc {
       color: var(--text-secondary);
       font-size: 0.875rem;
       line-height: 1.72;
-      margin-bottom: 1.25rem;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      transition: all 0.3s;
     }
+    #tpDesc.expanded { -webkit-line-clamp: unset; overflow: visible; }
 
     /* Cast */
     .tp-cast-label {
@@ -487,15 +488,15 @@
       text-decoration: none;
     }
     .ghost-btn-red {
-      background: rgba(244,63,94,0.12);
-      border: 1px solid rgba(244,63,94,0.28);
+      background: rgba(0,210,255,0.10);
+      border: 1px solid rgba(0,210,255,0.28);
       color: var(--accent-rose-light);
     }
     .ghost-btn-red:hover {
-      background: rgba(244,63,94,0.22);
+      background: rgba(0,210,255,0.20);
       border-color: var(--accent-rose);
       transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(244,63,94,0.2);
+      box-shadow: 0 8px 22px rgba(0,210,255,0.22);
     }
     .ghost-btn-amber {
       background: rgba(251,191,36,0.1);
@@ -550,7 +551,7 @@
       justify-content: center;
       transition: background 0.2s;
     }
-    .trailer-close:hover { background: rgba(244,63,94,0.55); }
+    .trailer-close:hover { background: rgba(0,210,255,0.40); }
 
     /* ═══════════════════════════════════════════
        CONTAINER / PLAYER
@@ -633,8 +634,8 @@
       align-items: center;
       gap: 0.4rem;
       padding: 0.3rem 0.8rem;
-      background: rgba(244,63,94,0.08);
-      border: 1px solid rgba(244,63,94,0.18);
+      background: rgba(0,210,255,0.08);
+      border: 1px solid rgba(0,210,255,0.18);
       border-radius: 6px;
       color: var(--accent-rose);
       font-size: 0.79rem;
@@ -689,14 +690,14 @@
     .btn:active { transform: translateY(0); }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent-rose), rgb(218,37,66));
+      background: linear-gradient(135deg, var(--accent-rose), rgb(0,145,190));
       border-color: transparent;
-      box-shadow: 0 4px 18px rgba(244,63,94,0.28);
+      box-shadow: 0 4px 18px rgba(0,210,255,0.28);
     }
     .btn-primary:hover {
-      background: linear-gradient(135deg, rgb(248,90,114), var(--accent-rose));
+      background: linear-gradient(135deg, rgb(60,225,255), var(--accent-rose));
       border-color: transparent;
-      box-shadow: 0 10px 32px rgba(244,63,94,0.42);
+      box-shadow: 0 10px 32px rgba(0,210,255,0.42);
     }
 
     .btn svg { width: 17px; height: 17px; }
@@ -884,7 +885,7 @@
 
     .mob-nav-grid {
       display: grid;
-      grid-template-columns: repeat(4,1fr);
+      grid-template-columns: repeat(3,1fr);
       height: 100%;
     }
 
@@ -930,10 +931,10 @@
     /* ═══════════════════════════════════════════
        PLYR CUSTOMIZATION
     ═══════════════════════════════════════════ */
-    .plyr { --plyr-color-main: rgb(244,63,94); }
+    .plyr { --plyr-color-main: rgb(0,210,255); }
     .plyr__control { color: white; }
-    .plyr__control:hover { background: rgba(244,63,94,0.2); }
-    .plyr__control--overlaid { background: rgba(244,63,94,0.9) !important; }
+    .plyr__control:hover { background: rgba(0,210,255,0.15); }
+    .plyr__control--overlaid { background: rgba(0,175,215,0.9) !important; }
     .plyr__control--overlaid:hover { background: var(--accent-rose) !important; }
     .plyr__control .lucide { fill: none !important; }
     .plyr__menu { background: var(--bg-glass-dark) !important; backdrop-filter: blur(20px); border: 1px solid var(--border-normal); border-radius: 10px; }
@@ -1068,7 +1069,7 @@
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg-primary); }
     ::-webkit-scrollbar-thumb { background: var(--bg-secondary); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: rgba(244,63,94,0.4); }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(0,210,255,0.35); }
 
     /* ═══════════════════════════════════════════
        RESPONSIVE — MOBILE
@@ -1107,7 +1108,7 @@
       .tp-mobile-head { display: block !important; }
       .tp-desktop-title { display: none; }
       .tp-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
-      .tp-desc { -webkit-line-clamp: 4; }
+      #tpDesc { -webkit-line-clamp: 4; }
 
       .info-card { padding: 1.25rem; }
       .file-title { font-size: 1.1rem; }
@@ -1148,6 +1149,150 @@
 
     /* Mobile-only helper */
     .tp-mobile-head { display: none; }
+
+    /* ═══════════════════════════════════════════
+       EXPANDED MOVIE DETAILS
+    ═══════════════════════════════════════════ */
+    .tp-desc {
+      -webkit-line-clamp: unset !important;
+      overflow: visible !important;
+      display: block !important;
+    }
+    .tp-desc-wrap {
+      position: relative;
+      margin-bottom: 1.25rem;
+    }
+    .tp-desc-inner {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.72;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .tp-desc-inner.expanded { -webkit-line-clamp: unset; overflow: visible; }
+    .tp-read-more {
+      background: none; border: none; cursor: pointer;
+      color: var(--accent-rose); font-size: 0.78rem; font-weight: 600;
+      padding: 0.25rem 0; font-family: "Inter", sans-serif;
+      margin-top: 0.25rem; display: block;
+      transition: opacity 0.2s;
+    }
+    .tp-read-more:hover { opacity: 0.75; }
+
+    /* Details grid */
+    .tp-details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+    }
+    .tp-detail-item {
+      background: rgba(0,210,255,0.04);
+      border: 1px solid rgba(0,210,255,0.10);
+      border-radius: 10px;
+      padding: 0.6rem 0.8rem;
+    }
+    .tp-detail-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.22rem;
+    }
+    .tp-detail-value {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+    .tp-detail-value.gold { color: var(--accent-amber); }
+    .tp-detail-value.cyan { color: var(--accent-rose); }
+
+    /* Score ring */
+    .tp-score-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .tp-score-ring {
+      position: relative;
+      width: 52px; height: 52px;
+      flex-shrink: 0;
+    }
+    .tp-score-ring svg { transform: rotate(-90deg); }
+    .tp-score-ring .ring-bg { fill: none; stroke: rgba(255,255,255,0.07); stroke-width: 4; }
+    .tp-score-ring .ring-fill { fill: none; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 138; transition: stroke-dashoffset 1.2s ease; }
+    .tp-score-num {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 800;
+      color: var(--text-primary);
+    }
+    .tp-score-info { flex: 1; }
+    .tp-score-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--text-muted); }
+    .tp-score-votes { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.1rem; }
+
+    /* Director row */
+    .tp-director-row {
+      display: flex; align-items: center; gap: 0.6rem;
+      margin-bottom: 1rem;
+      padding: 0.6rem 0.85rem;
+      background: rgba(255,185,0,0.05);
+      border: 1px solid rgba(255,185,0,0.14);
+      border-radius: 10px;
+    }
+    .tp-director-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255,185,0,0.3);
+      flex-shrink: 0;
+      background: var(--bg-secondary);
+    }
+    .tp-director-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-muted); }
+    .tp-director-name { font-size: 0.84rem; font-weight: 700; color: var(--accent-amber); }
+
+    /* Cast character names */
+    .cast-char {
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.35);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 1.2;
+      margin-top: 1px;
+    }
+    .cast-chip { width: 66px; }
+
+    /* Production companies */
+    .tp-prod-row {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      margin-bottom: 1.1rem;
+      align-items: center;
+    }
+    .tp-prod-label {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 1.4px;
+      text-transform: uppercase; color: var(--text-muted);
+      width: 100%; margin-bottom: 0.25rem;
+    }
+    .tp-prod-chip {
+      display: flex; align-items: center; gap: 0.4rem;
+      padding: 0.3rem 0.65rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      font-size: 0.72rem; font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .tp-prod-logo {
+      height: 14px; width: auto; max-width: 40px;
+      object-fit: contain; filter: brightness(0) invert(0.7);
+    }
+
   </style>
 </head>
 
@@ -1245,9 +1390,49 @@
           <div class="tp-genres"  id="tpGenres"></div>
           <p  class="tp-desc"     id="tpDesc"></p>
 
+          <!-- Score ring -->
+          <div class="tp-score-wrap" id="tpScoreWrap" style="display:none;">
+            <div class="tp-score-ring">
+              <svg viewBox="0 0 44 44" width="52" height="52">
+                <circle class="ring-bg" cx="22" cy="22" r="22"/>
+                <circle class="ring-fill" id="tpRingFill" cx="22" cy="22" r="22" stroke="rgb(0,210,255)" stroke-dashoffset="138"/>
+              </svg>
+              <div class="tp-score-num" id="tpScoreNum">—</div>
+            </div>
+            <div class="tp-score-info">
+              <div class="tp-score-label">User Score</div>
+              <div class="tp-score-votes" id="tpScoreVotes"></div>
+            </div>
+          </div>
+
+          <!-- Director -->
+          <div class="tp-director-row" id="tpDirectorRow" style="display:none;">
+            <img class="tp-director-avatar" id="tpDirectorAvatar" src="" alt="">
+            <div>
+              <div class="tp-director-label">Director</div>
+              <div class="tp-director-name" id="tpDirectorName"></div>
+            </div>
+          </div>
+
+          <!-- Description with read more -->
+          <div class="tp-desc-wrap">
+            <div class="tp-desc-inner" id="tpDesc"></div>
+            <button class="tp-read-more" id="tpReadMore" style="display:none;" onclick="toggleDesc()">Read more ↓</button>
+          </div>
+
+          <!-- Details grid -->
+          <div class="tp-details-grid" id="tpDetailsGrid" style="display:none;"></div>
+
           <div id="tpCastWrap" style="display:none; margin-bottom:1.1rem;">
             <div class="tp-cast-label">CAST</div>
             <div class="tp-cast-row" id="tpCast"></div>
+          </div>
+
+          <!-- Production companies -->
+          <div id="tpProdWrap" style="display:none; margin-bottom:1.1rem;">
+            <div class="tp-prod-row" id="tpProd">
+              <div class="tp-prod-label">Production</div>
+            </div>
           </div>
 
           <div class="tp-actions">
@@ -1257,7 +1442,7 @@
             </button>
             <a class="ghost-btn ghost-btn-amber" id="tpImdbLink" href="#" target="_blank" rel="noopener" style="display:none;">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-                <rect x="2" y="2" width="20" height="20" rx="3"/><rect x="6" y="8" width="2" height="8" fill="#020412"/><path d="M10 8h2l1.5 4 1.5-4h2v8h-2v-4.5l-1 3h-1l-1-3V16h-2V8z" fill="#020412"/><rect x="18" y="8" width="2" height="8" fill="#020412"/>
+                <rect x="2" y="2" width="20" height="20" rx="3"/><rect x="6" y="8" width="2" height="8" fill="#04050f"/><path d="M10 8h2l1.5 4 1.5-4h2v8h-2v-4.5l-1 3h-1l-1-3V16h-2V8z" fill="#04050f"/><rect x="18" y="8" width="2" height="8" fill="#04050f"/>
               </svg>
               IMDb
             </a>
@@ -1425,12 +1610,7 @@
         </svg>
         Explore
       </button>
-      <a class="mob-btn" href="https://t.me/NaChannel4" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.987 13.64l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.83.941z"/>
-        </svg>
-        Telegram
-      </a>
+
     </div>
   </nav>
 
@@ -1768,7 +1948,7 @@
     }
 
     async function fetchTMDB() {
-      if (!TMDB_KEY || TMDB_KEY==='59dc852589971269b23b12ed795ef79e') {
+      if (!TMDB_KEY || TMDB_KEY==='YOUR_TMDB_API_KEY') {
         document.getElementById('tmdbPanel').style.display='none';
         return;
       }
@@ -1836,13 +2016,68 @@
       document.getElementById('tpBadgesMob').innerHTML=badgesHTML;
 
       /* Genres */
-      document.getElementById('tpGenres').innerHTML=(d.genres||[]).slice(0,4).map(g=>`<span class="genre-pill">${g.name}</span>`).join('');
+      document.getElementById('tpGenres').innerHTML=(d.genres||[]).slice(0,5).map(g=>`<span class="genre-pill">${g.name}</span>`).join('');
+
+      /* Score ring */
+      if (d.vote_average && d.vote_count) {
+        const scoreWrap = document.getElementById('tpScoreWrap');
+        scoreWrap.style.display = 'flex';
+        const pct = d.vote_average / 10;
+        const offset = 138 - (138 * pct);
+        document.getElementById('tpScoreNum').textContent = d.vote_average.toFixed(1);
+        document.getElementById('tpScoreVotes').textContent = `${d.vote_count.toLocaleString()} votes`;
+        // Animate ring after paint
+        setTimeout(()=>{ const rf=document.getElementById('tpRingFill'); if(rf) rf.style.strokeDashoffset=offset; },120);
+        // Color the ring by score
+        const ringColor = pct>=0.7 ? 'rgb(0,210,255)' : pct>=0.5 ? 'rgb(255,185,0)' : 'rgb(255,80,80)';
+        const rf=document.getElementById('tpRingFill');
+        if(rf) rf.style.stroke=ringColor;
+      }
+
+      /* Director */
+      const crew = d.credits?.crew||[];
+      const director = crew.find(c=>c.job==='Director');
+      if (director) {
+        document.getElementById('tpDirectorRow').style.display='flex';
+        document.getElementById('tpDirectorName').textContent=director.name;
+        const da=document.getElementById('tpDirectorAvatar');
+        if (director.profile_path) { da.src=`${TMDB_IMG}w185${director.profile_path}`; da.alt=director.name; }
+        else { da.style.display='none'; }
+      }
 
       /* Overview */
-      document.getElementById('tpDesc').textContent=d.overview||'';
+      const descEl = document.getElementById('tpDesc');
+      descEl.textContent = d.overview||'No overview available.';
+      // Show read more if text is long
+      if (d.overview && d.overview.length > 220) {
+        const rmBtn = document.getElementById('tpReadMore');
+        if(rmBtn) rmBtn.style.display='block';
+      }
+
+      /* Details grid */
+      const detailsGrid = document.getElementById('tpDetailsGrid');
+      if (detailsGrid) {
+        const items = [];
+        if (year) items.push({label:'Released', value:d.release_date||year, cls:''});
+        if (runtime) items.push({label:'Runtime', value:runtime, cls:''});
+        if (d.original_language) items.push({label:'Language', value:d.original_language.toUpperCase(), cls:'cyan'});
+        if (d.status) items.push({label:'Status', value:d.status, cls:''});
+        if (d.budget && d.budget>0) items.push({label:'Budget', value:'$'+Math.round(d.budget/1e6)+'M', cls:'gold'});
+        if (d.revenue && d.revenue>0) items.push({label:'Box Office', value:'$'+Math.round(d.revenue/1e6)+'M', cls:'gold'});
+        if (d.vote_average) items.push({label:'TMDB Score', value:d.vote_average.toFixed(1)+'/10', cls:'cyan'});
+        if (d.popularity) items.push({label:'Popularity', value:Math.round(d.popularity).toLocaleString(), cls:''});
+        if (items.length) {
+          detailsGrid.style.display='grid';
+          detailsGrid.innerHTML=items.map(it=>`
+            <div class="tp-detail-item">
+              <div class="tp-detail-label">${it.label}</div>
+              <div class="tp-detail-value ${it.cls}">${it.value}</div>
+            </div>`).join('');
+        }
+      }
 
       /* Cast */
-      const cast=(d.credits?.cast||[]).slice(0,8);
+      const cast=(d.credits?.cast||[]).slice(0,10);
       if (cast.length) {
         document.getElementById('tpCastWrap').style.display='block';
         document.getElementById('tpCast').innerHTML=cast.map((a,i)=>`
@@ -1851,7 +2086,30 @@
               ?`<img src="${TMDB_IMG}w185${a.profile_path}" alt="${a.name}" loading="lazy">`
               :`<div class="cast-no-img">👤</div>`}
             <div class="cast-name">${a.name}</div>
+            ${a.character?`<div class="cast-char">${a.character.replace(/\(.*?\)/g,'').trim()}</div>`:''}
           </div>`).join('');
+      }
+
+      /* Production companies */
+      const companies = (d.production_companies||[]).slice(0,5);
+      if (companies.length) {
+        const prodWrap = document.getElementById('tpProdWrap');
+        const prodRow  = document.getElementById('tpProd');
+        if (prodWrap && prodRow) {
+          prodWrap.style.display='block';
+          const existing = prodRow.querySelectorAll('.tp-prod-chip');
+          existing.forEach(e=>e.remove());
+          companies.forEach(co=>{
+            const chip = document.createElement('div');
+            chip.className='tp-prod-chip';
+            if(co.logo_path){
+              chip.innerHTML=`<img class="tp-prod-logo" src="${TMDB_IMG}w92${co.logo_path}" alt="${co.name}"><span>${co.name}</span>`;
+            } else {
+              chip.innerHTML=`<span>${co.name}</span>`;
+            }
+            prodRow.appendChild(chip);
+          });
+        }
       }
 
       /* Trailer */
@@ -1864,6 +2122,14 @@
         lnk.href=`https://www.imdb.com/title/${d.external_ids.imdb_id}`;
         lnk.style.display='inline-flex';
       }
+    }
+
+    function toggleDesc() {
+      const el = document.getElementById('tpDesc');
+      const btn = document.getElementById('tpReadMore');
+      if (!el || !btn) return;
+      const expanded = el.classList.toggle('expanded');
+      btn.textContent = expanded ? 'Show less ↑' : 'Read more ↓';
     }
 
     function applyBackdrop(d) {
@@ -2003,4 +2269,4 @@
     else init();
   </script>
 </body>
-    </html>
+        </html>
