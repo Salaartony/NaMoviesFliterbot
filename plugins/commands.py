@@ -72,7 +72,17 @@ async def start(client, message):
                 verifiedfiles = f"https://telegram.me/{temp.U_NAME}?start=allfiles_{grp_id}_{file_id}"
             else:
                 verifiedfiles = f"https://telegram.me/{temp.U_NAME}?start=file_{grp_id}_{file_id}"
-            await client.send_message(settings['log'], script.VERIFIED_LOG_TEXT.format(m.from_user.mention, user_id, datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%d %B %Y'), num))
+             # --- LOGGING UPDATED WITH VERIFY_ID ---
+            await client.send_message(
+                settings['log'], 
+                script.VERIFIED_LOG_TEXT.format(
+                    m.from_user.mention, 
+                    user_id, 
+                    datetime.now(ist_timezone).strftime('%d %B %Y'), 
+                    num,
+                    verify_id=verify_id
+                )
+            )
             btn = [[
                 InlineKeyboardButton("✅ ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ɢᴇᴛ ꜰɪʟᴇ ✅", url=verifiedfiles),
             ]]
