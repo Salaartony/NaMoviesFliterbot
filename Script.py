@@ -526,8 +526,8 @@ This Is An Open-Source Project. You Can Use It Freely, But Selling The Source Co
     VERIFIED_LOG_TEXT = """ᴜꜱᴇʀ ᴠᴇʀɪꜰɪᴇᴅ ꜱᴜᴄᴄᴇꜱꜱꜰᴜʟʟʏ ✓
 
 👤 ɴᴀᴍᴇ:- {} [ <code>{}</code> ]
-
-📆 ᴅᴀᴛᴇ:- <code>{} </code>
+📆 ᴅᴀᴛᴇ:- <code>{}</code>
+🔑 ᴠᴇʀɪꜰʏ ɪᴅ:- {verify_id}
 
 #Verificaton_{}_Completed"""
 
