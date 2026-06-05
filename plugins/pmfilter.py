@@ -902,17 +902,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         size = get_size(files.file_size)
         f_caption = files.caption
         settings = await get_settings(query.message.chat.id)
-        if CUSTOM_FILE_CAPTION:
-            try:
-                f_caption = CUSTOM_FILE_CAPTION.format(file_name='' if title is None else title,
-                                                       file_size='' if size is None else size,
-                                                       file_caption='' if f_caption is None else f_caption)
-            except Exception as e:
-                logger.exception(e)
-            f_caption = f_caption
-        if f_caption is None:
-            f_caption = f"{files.file_name}"
-        await query.answer(url=f"href='https://telegram.me/{temp.U_NAME}?start=file_{query.message.chat.id}_{file.file_id}")
+        # Force the bot to only use the original caption from the database
+        f_caption = files.caption
+        
+        # Safe fallback: if the original file had absolutely no caption, use the file name
+        if not f_caption:
+            f_caption = f"<b>{files.file_name}</b>"
+            
+        # Fixed URL format and fixed the 'file.file_id' crash bug
+        await query.answer(url=f"https://telegram.me/{temp.U_NAME}?start=file_{query.message.chat.id}_{files.file_id}")
 
     elif query.data.startswith("autofilter_delete"):
         await Media.collection.drop()
