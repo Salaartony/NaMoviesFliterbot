@@ -73,7 +73,7 @@ auth_channels     = environ.get("AUTH_CHANNELS", "-1003877236641")# Channels for
 # Payment Configuration
 # ============================
 QR_CODE = environ.get('QR_CODE', 'notnow.jpg')    # QR code image for payments
-OWNER_UPI_ID = environ.get('OWNER_UPI_ID', 'ironman.21@ptaxis')    # Owner UPI ID for payments
+OWNER_UPI_ID = environ.get('OWNER_UPI_ID', '...')    # Owner UPI ID for payments
 
 STAR_PREMIUM_PLANS = {
     10: "7day",
